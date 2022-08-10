@@ -6,28 +6,20 @@ site_description: >-
   Some random blogs on Math, Informatics, Physics Olympiads and more.
 theme:
   name: material
-  features:
-    - header.autohide
   # 一些扩展功能。 
-  feature:
-    - tabs: true
-    - content.code.annotate
-    # - content.tabs.link
-    - content.tooltips
-    # - header.autohide
-    # - navigation.expand
-    - navigation.indexes
-    # - navigation.instant
-    # - navigation.prune
-    - navigation.sections
-    - navigation.tabs
-    # - navigation.tabs.sticky
-    - navigation.top
-    - navigation.tracking
-    - search.highlight
-    - search.share
-    - search.suggest
+  features:
+    # - navigation.instant # 点击内部链接时，不用全部刷新页面 # 会导致 数学公式第一次进入时加载失败
+    - navigation.tracking # 在url中使用标题定位锚点
+    - navigation.tabs # 顶部显示导航顶层nav（也就是第一个节点）
+    - navigation.tabs.sticky # 滚动时隐藏顶部nav，需要配合navigation.tabs使用
+    - navigation.sections # nav节点缩进
+    # - navigation.expand # 不折叠左侧nav节点
+    - navigation.indexes # 指定节点index pages ，跟instant不兼容
+    - toc.integrate # 右侧生产目录
     - toc.follow
+    - navigation.top # 一键回顶部
+    - search.suggest
+    - search.highlight
 
   font:
     text: Play
