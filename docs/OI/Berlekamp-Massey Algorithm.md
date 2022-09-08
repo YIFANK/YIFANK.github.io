@@ -3,23 +3,38 @@ In this blog, I will be sharing some notes related to Berlekamp-Massey Algorithm
 ### What is linear recurrence?
 
 Though it might be the first time to see such a fancy term, most people have actually encountered linear recurrence relations many times. For example, the sequence
+
+
 $$
 1,2,4,8,16,\dots
 $$
+
+
 is a linear recurrence sequence because of the recurrence relationship
+
+
 $$
 a_n=2\times a_{n-1}
 $$
 
 
+
 Another famous example would be the Fibonacci numbers $F_0,F_1,F_2,\dots$ where $F_0=0,F_1=1,F_n=F_{n-1}+F_{n-2}$ for $n\ge 2$ . so, the sequence begins
+
+
 $$
 0,1,1,2,3,5,8,\dots
 $$
+
+
 Basically, a sequence $a_0,a_1,\dots,a_{n-1}$ satisfies a linear recurrence relation $c_1,c_2,\dots,c_m$ if for all $i\ge m$, we have
+
+
 $$
 a_i=\sum_{j=1}^m c_ja_{i-j}
 $$
+
+
 
  ### Berlekamp-Massey Algorithm
 
@@ -76,21 +91,37 @@ void BM(ll *a,int n,vector <ll> &C){
 ### How to find the k-th term of a sequence with the linear recurrence relation?
 
 Suppose we have a magic function $G$ that maps a polynomial to a real number in this way:
+
+
 $$
 G(\sum_{i=0}^n c_ix^i)=\sum_{i=0}^nc_ia_i
 $$
+
+
 Notice that for the polynomial $f(x)=x^{m}-\sum_{i=1}^m c_ix^{m-i}$ ,  we have
+
+
 $$
 G(x^kf(x))=a_{k+m}-\sum_{i=1}^m c_ia_{m+k-i}=0
 $$
+
+
 By the definition of linear recurrence relation. Thus,
+
+
 $$
 G(g(x)f(x))=0
 $$
+
+
 for any polynomial $g(x)$ .
+
+
 $$
 a_k=G(x^k)=G(r(x))
 $$
+
+
 where $r(x)$ is the remainder of $x^k$ when divided by $f(x)$ . We can calculate $x^k$ in a binary-exponentiation manner then calculate $x^k\mod f$ . Time complexity will be $O(m^2\log k)$ or $O(m\log m\log k)$ if we speed up the polynomial multiplication part by using FFT.
 
 
