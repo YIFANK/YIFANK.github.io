@@ -22,7 +22,7 @@ Moreover, $K_r$ is the **complete graph** on $r$ vertices, which means $E=\{(x,y
 
 We can describe many interesting problems using these definition and we will try solving some of them.
 
-> (Multicolor Triangle Ramsey's Theorem) For every positive integer $r$, there is some integer $N=N_r$ such that if each edge of $K_N$ is colored using one of the $r$ colors, then there will be a monochromatic (one color) triangle.
+> *(Multicolor Triangle Ramsey's Theorem)* For every positive integer $r$, there is some integer $N=N_r$ such that if each edge of $K_N$ is colored using one of the $r$ colors, then there will be a monochromatic (one color) triangle.
 
 First, it's clear that if $r=1$, then $N_r=3$ simply satisfy the condition since there is only one color. We want to prove a non-trivial case when $r=2$. When $N=5$, we can give a construction where there is no monochromatic triangle like this:
 
@@ -32,7 +32,7 @@ However, $N_2=6$, which means that no matter how we color $K_6$, there will be a
 
 Interesting! But how do we prove this? First, we need to know pigeonhole principle:
 
-> (Pigeonhole Principle) If $n=km+t$ items $(k,t>0)$ are put into $m$ containers, at least one of the containers will contain $k+1$ items.
+> *(Pigeonhole Principle)* If $n=km+t$ items $(k,t>0)$ are put into $m$ containers, at least one of the containers will contain $k+1$ items.
 
 *Proof:* Suppose the $i$-th container contain $c_i$ items and all containers contain less than $k+1$ items, then:
 $$
@@ -58,7 +58,7 @@ There are some more generalizations to this theorem, which can be proven by appl
 - Multicolor clique
 - hypergraph
 
-Schur's Theorem: For every positive integer $r$, there exists a possible integer $N=N(r)$ such that each element of $[N]$ is colored using oe of $r$ colors, then there is a monochromatic solution to $x+y=z$ ($x,y,z$ have the same color).
+> *(Schur's Theorem)* For every positive integer $r$, there exists a possible integer $N=N(r)$ such that each element of $[N]$ is colored using oe of $r$ colors, then there is a monochromatic solution to $x+y=z$ ($x,y,z$ have the same color).
 
 Proof: 
 
