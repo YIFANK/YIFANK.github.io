@@ -42,5 +42,3 @@ Proof: This is equivalent to proving that for any $g\in G$ , there exist $a\in A
 
 
 
-
-
