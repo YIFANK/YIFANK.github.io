@@ -60,19 +60,20 @@ There are some more generalizations to this theorem, which can be proven by appl
 
 > *(Schur's Theorem)* For every positive integer $r$, there exists a possible integer $N=N(r)$ such that each element of $[N]$ is colored using oe of $r$ colors, then there is a monochromatic solution to $x+y=z$ ($x,y,z$ have the same color).
 
-Proof: 
-
-Assume we have the coloring $\phi$, for $[N]$, then for each edge of a complete graph we color the edge $(i,j)$ with the color $\phi(j-i)$ when $i<j$.
+*Proof:* Assume we have the coloring $\phi$, for $[N]$, then for each edge of a complete graph we color the edge $(i,j)$ with the color $\phi(j-i)$ when $i<j$.
 
 By Ramsey's Theorem, there is a monochromatic triangle, so there exist $i<j<k$ such that
+
+
 $$
 \phi(j-i)=\phi(k-j)=\phi(k-i)
 $$
 
 
+
 Take $x = j-i,y=k-j,z=k-i$, then $\phi(x)=\phi(y)=\phi(z)$ and $x+y=z$. 
 
-> "Now that we proved Schur’s theorem, let us pause and think about what did we gain by translating the problem to graph theory? We were able to apply Ramsey’s theorem, whose proof considers restrictions to subgraphs, which would have been rather unnatural if we had worked exclusively in the integers. Graphs gave us greater flexibility."
+> "Now that we proved Schur’s theorem, let us pause and think about what did we gain by translating the problem to graph theory? We were able to apply Ramsey’s theorem, whose proof considers restrictions to subgraphs, which would have been rather unnatural if we had worked exclusively in the integers. Graphs gave us greater flexibility." - Yufei Zhao
 
 
 
