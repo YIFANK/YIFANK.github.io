@@ -36,7 +36,7 @@ $$
 
 
 
- ### Berlekamp-Massey Algorithm
+### Berlekamp-Massey Algorithm
 
 Back to the main topic, how does the algorithm find a linear recurrence relation for a given sequence?
 
