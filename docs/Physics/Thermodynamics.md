@@ -15,8 +15,6 @@ where:
 - $T$ is the absolute temperature of the gas,
 - $N$ is the number of particles.
 
-****
-
 ### The First Law of Thermodynamics
 
 $$
