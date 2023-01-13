@@ -26,6 +26,7 @@ If $x$ and $y$ have independent random errors $\delta x$ and $\delta y$ , then t
 $$
 \delta z=\sqrt{\delta x^2+\delta y^2}
 $$
+
 the error in $z=x\times y$ or $z=x/y$ is:
 
 
@@ -39,12 +40,14 @@ If $z=f(x)$ for some function $f$, then
 $$
 \delta z=|f'(x)|\delta x
 $$
+
 Thus, $x^n$ has relative uncertainty:
 
 
 $$
 \delta(x^n)/x^n=|n|\delta x/x
 $$
+
 Practice problems: 2018AP12,2018AP25,2019AP11,2019AP16,2019BP18,2021P8,2020AP23,2020BP25
 
 Challenge problem:2019BP25
