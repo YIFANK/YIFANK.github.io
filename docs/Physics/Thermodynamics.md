@@ -31,11 +31,13 @@ $$
 ### Adiabatic Process
 
 
-$$
-pV^\gamma = \text{constant}\\
-p^{1-\gamma}T^\gamma = \text{constant}\\
-TV^{\gamma - 1}=\text{constant}\\
-$$
+$$pV^\gamma = \text{constant}$$
+
+$$p^{1-\gamma}T^\gamma = \text{constant}$$
+
+$$TV^{\gamma - 1}=\text{constant}$$
+
+
 where $\gamma$ is the adiabatic index or heat capacity ratio defined as:
 
 
@@ -50,29 +52,23 @@ $$
 The adiabatic process is defined as a process where heat transfer is zero, then we can apply the first law of thermodynamics:
 
 
-
 $$
 dQ=dU-dW=d(\alpha pV)+pdV=(\alpha +1)pdV+\alpha Vdp=0
 $$
 
-
 We can separate the variable:
-
 
 
 $$
 -(\alpha  + 1)\dfrac{dV}V=\alpha\dfrac{dp}p
 $$
 
-
 Integrate on both sides:
-
 
 
 $$
 \ln(p/p_0)=-\dfrac{\alpha + 1}{\alpha}(V/V_0)
 $$
-
 
 And then exponentiate them, substituting $\gamma=\dfrac{\alpha + 1}{\alpha}$ .
 
