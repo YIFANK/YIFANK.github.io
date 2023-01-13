@@ -1,4 +1,4 @@
-The syllabus is copied from [F=ma Complete Guide](https://www.youtube.com/watch?v=SuFpSrCzucM) .
+The syllabus is inspired by the video [F=ma Complete Guide](https://www.youtube.com/watch?v=SuFpSrCzucM). First, there are some helpful things to know about before taking the F=ma exam:
 
 - 75 minutes, 25 questions
 - Calculators are allowed
