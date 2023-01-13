@@ -31,11 +31,10 @@ $$
 ### Adiabatic Process
 
 
-$$
-pV^\gamma = \text{constant}\\
-p^{1-\gamma}T^\gamma = \text{constant}\\
-TV^{\gamma - 1}=\text{constant}\\
-$$
+$$pV^\gamma = \text{constant}$$
+$$p^{1-\gamma}T^\gamma = \text{constant}$$
+$$TV^{\gamma - 1}=\text{constant}$$
+
 
 where $\gamma$ is the adiabatic index or heat capacity ratio defined as:
 
