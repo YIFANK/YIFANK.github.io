@@ -32,7 +32,9 @@ $$
 
 
 $$pV^\gamma = \text{constant}$$
+
 $$p^{1-\gamma}T^\gamma = \text{constant}$$
+
 $$TV^{\gamma - 1}=\text{constant}$$
 
 
