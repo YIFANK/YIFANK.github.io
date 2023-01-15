@@ -9,6 +9,10 @@ ct'=\gamma(ct-\beta x),x'=\gamma(x-\beta ct),y'=y,z'=z
 $$
 
 
+$$
+p_x'=\gamma(p_x-mv),m'=\gamma(m-p_xv/c^2)
+$$
+
 
 ### Velocity Addition
 
@@ -18,6 +22,14 @@ $$
 u_x=\dfrac{u_x'+v}{1+u_x'v/c^2},u_y=\dfrac{u_y'}{\gamma(1+u_x'v/c^2)}
 $$
 
+
+
+### Doppler effect
+
+
+$$
+\nu'=\nu_0\sqrt{(1-\beta)/(1+\beta)}
+$$
 
 
 ### 4-vector
