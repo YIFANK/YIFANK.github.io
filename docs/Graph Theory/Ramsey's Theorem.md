@@ -4,7 +4,7 @@ So, what is graph theory?
 
 I am bad at explaining things, so I asked chatGPT for its definition:
 
-![image-20221207001004727](/Users/yifankang/Library/Application Support/typora-user-images/image-20221207001004727.png)
+> ChatGPT: "Graph theory is a branch of mathematics that studies the properties and structures of graphs, which are mathematical representations of networks of objects or relationships between them. Graphs can be used to model a wide range of problems in various fields, including computer science, engineering, social sciences, biology, physics, and more. Some of the basic concepts in graph theory include vertices (or nodes), edges, and various types of graph such as directed, undirected, weighted and unweighted."
 
 First, we introduce some notations to define a graph.
 
@@ -12,7 +12,7 @@ We write a graph as $G=(V,E)$, where $V$ is the set of vertices and $E\subseteq 
 
 For example, when $V=\{1,2,3,4\},E=\{(1,3),(1,4),(2,3),(2,4)\}$. The graph looks like this:
 
-<img src="/Users/yifankang/Library/Application Support/typora-user-images/image-20221207100910624.png" alt="image-20221207100910624" style="zoom:50%;" />
+![img](https://raw.githubusercontent.com/YIFANK/YIFANK.github.io/main/pics/image-20221207100910624.png)
 
 This is also known as a $K_{2,2}$ graph, which means we have two vertices on the left and other two on the right, and every vertex on the left is connected with every vertex on the right.
 
@@ -35,9 +35,13 @@ Interesting! But how do we prove this? First, we need to know pigeonhole princip
 > *(Pigeonhole Principle)* If $n=km+t$ items $(k,t>0)$ are put into $m$ containers, at least one of the containers will contain $k+1$ items.
 
 *Proof:* Suppose the $i$-th container contain $c_i$ items and all containers contain less than $k+1$ items, then:
+
+
 $$
 n=c_1+c_2+\cdots+c_m\le k+k+k+\cdots+k=km<km+t=n
 $$
+
+
 Contradiction!
 
 It is not hard to further show that the maximum value of $k+1$ in this theorem is $\lceil n/m\rceil$ . Intuitively, the principle tells us that the larger number of items we have, there will be a container with more items in it.
@@ -53,16 +57,19 @@ Suppose the claim is true for $r-1$ colors, which means that we can find a monoc
 
 Notice how we reduce the $N=6,r=2$ case to $N=3,r=1$ by pigeonhole? We can do it again! If we take $N$ large enough, there will be more than $N_{r-1}$ edges of the same color coming out from vertex $1$. Then for the $N_{r-1}$ other vertices in these edges, the edges between them cannot be of the same color, which reduces the coloring among them into $r-1$ colors. Finally, we can get a monochromatic triangle in them following by our induction. Numerically, the large enough $N$ is $N_r=r(N_{r-1}-1)+2$. The readers can verify that this suffices for our pigeonhole to work.
 
-There are some more generalizations to this theorem, which can be proven by applying the pigeonhole principle inductively in a similar style as above.
+There are some more variations of this theorem, which can be proven by applying the pigeonhole principle inductively in a similar style as above.
 
-- Multicolor clique
-- hypergraph
+- *(Ramsey's Theorem)* For every $k$ and $r$ there exist some integer $N=N(k,r)$ such that if each edge of $K_N$ is colored using one of the $r$ colors, then there is a monochromatic $K_k$.
+- *(Ramsey's Number)* For every $r$ and $b$ there exist an integer $n=R(r,b)$ such that if each edge of $K_N$ is colored either blue or red, either a red monochromatic subgraph $K_r$ or a blue monochromatic subgraph $K_b$ exists.
+
+Though it is not difficult proving such integer exists, finding the exact Ramsey number is extremely hard and mathematicians have been working on this problem for decades! In fact, people still haven't found the value of $R(5,5)$ though it has been proven to be no less than 43 (Geoffrey Exoo (1989)) and no greater than 48 (Angeltveit and McKay (2017)).
 
 > *(Schur's Theorem)* For every positive integer $r$, there exists a possible integer $N=N(r)$ such that each element of $[N]$ is colored using oe of $r$ colors, then there is a monochromatic solution to $x+y=z$ ($x,y,z$ have the same color).
 
 *Proof:* Assume we have the coloring $\phi$, for $[N]$, then for each edge of a complete graph we color the edge $(i,j)$ with the color $\phi(j-i)$ when $i<j$.
 
 By Ramsey's Theorem, there is a monochromatic triangle, so there exist $i<j<k$ such that
+
 
 
 $$
