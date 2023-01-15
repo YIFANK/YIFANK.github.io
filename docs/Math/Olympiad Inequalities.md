@@ -1,12 +1,15 @@
 In a problem with $n$ variables, $\sum_{cyc}$ means to cycle through $n$ variables, and $\sum_{sym}$ means to go through all the $n!$ permutations. e.g.
 
-$$\sum_{cyc}a^2=a^2+b^2+c^2$$
 
-$$\sum_{sym}a^2=a^2+a^2+b^2+b^2+c^2+c^2$$
+$$
+\begin{aligned}
+\sum_{cyc}a^2&=a^2+b^2+c^2\\
+\sum_{sym}a^2&=a^2+a^2+b^2+b^2+c^2+c^2\\
+\sum_{cyc}ab&=ab+bc+ca\\
+\sum_{sym}a^2b&=a^2b+ab^2+a^2c+ac^2+b^2c+bc^2
+\end{aligned}
+$$
 
-$$\sum_{cyc}ab=ab+bc+ca$$
-
-$$\sum_{sym}a^2b=a^2b+ab^2+a^2c+ac^2+b^2c+bc^2$$
 
 ### Basic Inequalities
 

@@ -12,7 +12,7 @@ We write a graph as $G=(V,E)$, where $V$ is the set of vertices and $E\subseteq 
 
 For example, when $V=\{1,2,3,4\},E=\{(1,3),(1,4),(2,3),(2,4)\}$. The graph looks like this:
 
-![img](https://raw.githubusercontent.com/YIFANK/YIFANK.github.io/main/pics/image-20221207100910624.png)
+<img src="https://raw.githubusercontent.com/YIFANK/YIFANK.github.io/main/pics/image-20221207100910624.png" alt="img" style="zoom:50%;" />
 
 This is also known as a $K_{2,2}$ graph, which means we have two vertices on the left and other two on the right, and every vertex on the left is connected with every vertex on the right.
 
