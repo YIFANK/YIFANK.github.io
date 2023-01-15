@@ -154,7 +154,7 @@ Common forces that you need to consider in your free body diagram:
 - Spring force $-kx$
 - Centripetal force $mv^2/r$
 - normal force $N$
-- friction force $f=\mu N$ opposes the motion of the body
+- friction force $f\le \mu N$ opposes the motion of the body
 
 Some common models that you want to be familiar with:
 
@@ -173,13 +173,12 @@ Some common models that you want to be familiar with:
 
 - Work-energy theorem: $W=\Delta K$
 
-### Torque and Angular Momentum
+### Rotating Objects
 
-
-
-### Equilibrium
-
-
+- torque $\tau$
+- angular momentum $L$
+- moment of inertia $I$
+- rotational kinetic energy $K_r=\dfrac12I\omega^2$
 
 ### Gravitation
 
@@ -197,10 +196,62 @@ $$
 
 ### Fluids
 
-
+- **Archimedes principle** states that the upward buoyant force that is exerted on a body in a fluid is equal to the weight of the fluid that the body displaces. $F_b=\rho_lVg$, where $\rho_l$ is the density of the fluid and $V$ is the volume of the fluid that the body displaces.
+- **Continuity equation**: basically it means that the volume flow in equals the volume flow out in any period of time. $\rho_1A_1v_1=\rho_2A_2v_2$. Most of the time we are dealing with incompressible liquids, so we can drop the density factor and get $A_1v_1=A_2v_2$.
+- **Bernoulli equation**: the energy version of continuity equation  $P_1+\dfrac12\rho v_1^2+\rho gh_1=P_2+\dfrac12\rho v_2^2+\rho gh_2$
 
 ### Oscillations
 
+**Simple harmonic motion**
 
+
+$$
+x(t)=A\cos(\omega t+\phi)
+$$
+
+
+Where $t$ is the time, $x$ is the displacement, $\omega$ is the angular frequency, $A$ is the amplitude, and $\phi$ is the phase shift measured in radians. This is a solution to the differential equation in either of the following forms:
+
+
+$$
+\begin{aligned}
+a=\frac{d^2x}{dt^2}=-\omega^2x\\
+x^2+\frac{v^2}{\omega^2}=A^2\\
+\end{aligned}
+$$
+
+
+The first equation is derived from Newton's second law while the second one is a result of energy conservation. They are both very important to know about. Take the most classical example of a mass $m$ that moves horizontally while attaching to a spring with spring constant $k$. If the system is left at rest at the equilibrium position, then no net force is acting on the mass. Otherwise, we would have the restoring elastic force by the Hooke's law:
+
+
+$$
+F=-kx
+$$
+
+
+Notice that from Newton's second law we also have $F=ma$, then we can get:
+
+
+$$
+a=-\frac km x=-\omega^2x,\omega = \sqrt{\frac km}
+$$
+
+
+An alternative way is using the conservation of energy:
+
+
+$$
+\frac12mv^2+\frac12kx^2=\frac12mv_0^2+\frac12kx_0^2=\text{const}
+$$
+
+
+We can also get the angular frequency by dividing the factors of $x^2$ by the factors of $v^2$ in this formula. Below are some more formulas for some terms we use in oscillation:
+
+- period $T$ of an oscillation: $T=2\pi/\omega$
+- frequency $f$: $f=\omega/2\pi$
+
+
+
+A system of $N$ coupled oscillators has $N$ different eigenmodes when all the oscillatros oscillate with the same frequency $\omega_i,x_j=x_{j0}\sin(\omega_i t+\varphi_{ij})$ and $N$ eigen-frequencies $\omega_i$ (which can be multiple, $\omega_i=\omega_j$). General solution is a superposition of all the eigenmotions.
 
 ### Waves (?)
