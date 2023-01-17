@@ -175,10 +175,30 @@ Some common models that you want to be familiar with:
 
 ### Rotating Objects
 
-- torque $\tau$
+- torque $\tau=r\times F$
 - angular momentum $L=r\times p = mvr_\theta$
-- moment of inertia $I$
+- moment of inertia $I=\sum r^2dm$, which can be derived by hand but it's faster to remember the values:
+
+<img src="https://cdn1.byjus.com/wp-content/uploads/2020/11/Moment-of-InertiaArtboard-1-copy-16-8.png" alt="Moment of Inertia - Formulas, MOI of Objects [Solved Examples]" style="zoom:50%;" />
+
+- Parallel axis theorem: **the moment of inertia about a parallel axis is the center of mass moment plus the moment of inertia of the entire object treated as a point mass at the center of mass**.
+
+
+$$
+I=I_{cm}+Md^2
+$$
+
+
 - rotational kinetic energy $K_r=\dfrac12I\omega^2$
+
+People often get confused about rotational object, however, it's actually very similar to linear motion. We can draw comparison between these quantities:
+
+- angle $\theta$ to displacement $x$
+- angular velocity $\omega$ to velocity $v$
+- torque $\tau$ to force $F$
+- angular momentum $L$ to momentum $p$
+- moment of inertia $I$ to mass $m$
+- rotational kinetic energy $\dfrac 12 I\omega^2$ to kinetic energy $\dfrac12 mv^2$
 
 ### Gravitation
 
@@ -324,6 +344,8 @@ $$v^2=G(M+m)(\dfrac{2}r-\dfrac 1a)$$
 
 
 
+*Remarks:* **The orbital energy is determined only by the semimajor axis, whereas the angular momentum requires us to know both the semimajor and semiminor axis.**
+
 ### Fluids
 
 - **Archimedes principle** states that the upward buoyant force that is exerted on a body in a fluid is equal to the weight of the fluid that the body displaces. $F_b=\rho_lVg$, where $\rho_l$ is the density of the fluid and $V$ is the volume of the fluid that the body displaces.
@@ -374,13 +396,35 @@ $$
 \frac12mv^2+\frac12kx^2=\frac12mv_0^2+\frac12kx_0^2=\text{const}
 $$
 
+We can also get the angular frequency by dividing the factors of $x^2$ by the factors of $v^2$ in this formula.
 
-We can also get the angular frequency by dividing the factors of $x^2$ by the factors of $v^2$ in this formula. Below are some more formulas for some terms we use in oscillation:
+Another classical example will be the simple pendulum at small angle $\theta\ll 1$. 
+
+![Oscillation of a Simple Pendulum](http://www.acs.psu.edu/drussell/Demos/Pendulum/Pendulum.gif)
+
+By its free body diagram we can apply Newton's second law for rotational system:
+
+
+
+$$
+\tau = I\alpha\implies -mg\sin\theta L = (mL^2)\dfrac{d^2\theta}{dt^2}
+$$
+
+
+Plug in small angle approximation $\sin\theta\approx \theta$:
+
+
+$$
+\dfrac{d^2\theta}{dt^2}+\dfrac gL\theta=0
+$$
+
+
+By our previous knowledge we know that the angular frequency $\omega = \sqrt{g/L}$. 
+
+Below are some more formulas for some terms we use in oscillation:
 
 - period $T$ of an oscillation: $T=2\pi/\omega$
 - frequency $f$: $f=\omega/2\pi$
-
-
 
 A system of $N$ coupled oscillators has $N$ different eigenmodes when all the oscillatros oscillate with the same frequency $\omega_i,x_j=x_{j0}\sin(\omega_i t+\varphi_{ij})$ and $N$ eigen-frequencies $\omega_i$ (which can be multiple, $\omega_i=\omega_j$). General solution is a superposition of all the eigenmotions.
 
