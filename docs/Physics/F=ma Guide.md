@@ -22,7 +22,7 @@ $$
 
 Where $x$ is the final position of the object, $x_0$ is the initial position, $v_0$ is the initial velocity, $t$ is the time, and $a$ is the acceleration.
 
-We can use dimensional analysis to check that the units of the different terms in the equation are consistent. The units of $x$, $x_0$, and $v_0$ are length (e.g. meters), the units of $t$ are time (e.g. seconds), and the units of $a$ are length per time squared (e.g. meters per second squared).
+We can use dimensional analysis to check that the units of the different terms in the equation are consistent. The units of $x$, $x_0$ are length (e.g. meters), the unit of $v_0$ is length over time (e.g. meters per seconds), the units of $t$ is time (e.g. seconds), and the units of $a$ are length per time squared (e.g. meters per second squared).
 
 So we can check that the equation is dimensionally consistent by making sure that the units on both sides of the equation are the same.
 $$
@@ -176,7 +176,7 @@ Some common models that you want to be familiar with:
 ### Rotating Objects
 
 - torque $\tau$
-- angular momentum $L$
+- angular momentum $L=r\times p = mvr_\theta$
 - moment of inertia $I$
 - rotational kinetic energy $K_r=\dfrac12I\omega^2$
 
@@ -193,6 +193,136 @@ $$
 - **Kepler's Third Law**: square of the orbital period is proportional to cube of the semimajor axis. $T^2\propto a^3$
 
 *Remark:* The **second law** is a result of conservation of **angular momentum**, while the other two laws requires the gravitational force to be exactly inverse proportional to square of the distance between two stars. ($F\propto r^{-2}$)
+
+**Elliptical Orbit**
+
+First, we would like to prove that the orbit of a planet of mass $m$ is indeed elliptical and the big mass $M$ is the focus of the eclipse. (by big mass, we mean $m\ll M$) By Newton's second law,
+
+
+$$
+m\dfrac{d\vec{v}}{dt}=-\dfrac{GMm}{r^2}\hat{r}
+$$
+
+
+Apply chain rules $\dfrac{d\vec{v}}{dt}=\dfrac{d\vec{v}}{d\theta}\dfrac{d\theta}{dt}$ , also conservation of angular momentum tells us that $mr^2\dfrac{d\theta}{dt}=L$. Then
+
+
+$$
+\dfrac{d\vec{v}}{d\theta}=-\dfrac{GMm}{L}\hat{r}
+$$
+
+
+Define $\hat{\theta}$ to be the unit vector perpendicular to $\hat{r}$ pointing in the direction $\hat{r}$ moves with increasing $\theta$ . By some geometry, it's not hard to see that:
+
+
+$$
+\dfrac{d\hat{\theta}}{d\theta}=\hat{r}
+$$
+
+
+Plug it back and we now have:
+
+
+$$
+\dfrac{d}{d\theta}(\vec{v}-\dfrac{GMm}{L}\hat{\theta})=0
+$$
+
+
+Thus, the quantity $\vec{v}-\dfrac{GMm}{L}\hat{\theta}=\vec{u}$ is a constant independent of $\theta$ . WLOG, assume that $\vec{u} = u\hat{j}$ . Then:
+
+
+$$
+v_{\theta} =\vec{v}\cdot\hat{\theta} = \dfrac{GMm}{L}+u\cos\theta
+$$
+
+
+Since $\vec{L}=\vec{r}\times\vec{p}=mrv_\theta$, we can substitute and get:
+
+
+$$
+\dfrac{L}{mr}=\dfrac{GMm}{L}+u\cos\theta
+$$
+
+
+Simplifying this and we can solve for $r$ with respect to angle $\theta$:
+
+
+$$
+r(\theta) = \dfrac{L^2/GMm^2}{1+(Lu/GmM)\cos\theta}
+$$
+
+
+
+This is the equation for an eclipse with eccentricity $Lu/GmM$ with the focus at the origin.
+
+**Kepler's Third Law Derivation**
+
+ For an elliptical orbit with semimajor axis length $a$ and semiminor axis length $b$, its eccentricity $e$ is defined as $a^2+(ae)^2=b^2$, or $e=\sqrt{1-(b/a)^2}$ . By geometry, we know the closest distance to the focus $r_1=a(1-e)$ and the furthest distance $r_2=a(1+e)$. Thus:
+
+- $r_1r_2=a^2(1-e^2)=b^2$
+- $r_1+r_2=2a$
+
+Suppose the velocity at these two points are $v_1,v_2$, respectively, by energy and angular momentum conservation we have:
+
+
+
+$$mv_1r_1=mv_2r_2=L$$
+
+
+
+$$\dfrac12mv_1^2-\dfrac{GMm}{r_1}=\dfrac12mv_2^2-\dfrac{GMm}{r_2}=E$$
+
+
+
+Rewrite $v_1=L/mr_1,v_2=L/mr_2$ and plug it in the second equation:
+
+
+$$
+\dfrac{L^2}{2m^2}(\dfrac1{r_1^2}-\dfrac{1}{r_2^2})=GM(\dfrac1{r_1}-\dfrac{1}{r_2})
+$$
+
+
+Simplify:
+
+
+$$
+\dfrac{L^2}{2m^2}=\dfrac{GM}{1/r_1+1/r_2}=\dfrac{GMr_1r_2}{r_1+r_2}=\dfrac{GMb^2}{2a}
+$$
+
+
+Notice that $L/2m=vr/2$ is the sweeping rate of the eclipse area in **Kepler's second law** and the eclipse's area is $\pi ab$, then
+
+
+$$
+T^2=(\dfrac{\pi ab}{L/2m})^2=\dfrac{2(\pi ab)^2}{GMb^2/2a}=\dfrac{4\pi^2 a^3}{GM}\propto a^3
+$$
+
+
+**Orbital Energy**
+
+Moreover, we can derive that the total energy only depends on the major axis $a$! To see this, we add the energy at those two points together:
+
+
+$$
+\begin{aligned}
+2E&=\dfrac{L^2}{2m}(\dfrac{1}{r_1^2}+\dfrac{1}{r_2^2})-GMm(\dfrac1{r_1}+\dfrac{1}{r_2}) \\
+&= \dfrac{GMmb^2}{2a}((\dfrac{1}{r_1}+\dfrac{1}{r_2})^2-\dfrac{2}{r_1r_2})-GMm(\dfrac1{r_1}+\dfrac{1}{r_2})\\
+&= \dfrac{GMmb^2}{2a}(4a^2/b^4-2/b^2)-GMm(2a/b^2)\\
+&=-\dfrac{GMm}{a}\\
+\implies E&=-\dfrac{GMm}{2a}\\
+\end{aligned}
+$$
+
+
+**Orbital Velocity**
+
+By energy conservation, we can get the velocity
+
+
+
+$$v^2=G(M+m)(\dfrac{2}r-\dfrac 1a)$$
+
+
 
 ### Fluids
 
