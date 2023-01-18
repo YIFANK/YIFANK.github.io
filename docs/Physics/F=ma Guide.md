@@ -340,7 +340,7 @@ By energy conservation, we can get the velocity
 
 
 
-$$v^2=G(M+m)(\dfrac{2}r-\dfrac 1a)$$
+$$v^2=GM(\dfrac{2}r-\dfrac 1a)$$
 
 
 
