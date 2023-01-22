@@ -246,6 +246,39 @@ $$
 v_1'=\dfrac{m_1-m_2}{m_1+m_2}v_1+\dfrac{2m_2}{m_1+m_2}v_2
 $$
 
+**Derivation**
+
+By conservation of momentum, our center of mass moves at a constant velocity:
+
+
+$$
+v_c=\frac{m_1v_1+m_2v_2}{m_1+m_2}
+$$
+
+
+We will work at the frame of reference where the center of mass is at rest. In this frame, our total momentum is zero! Thus $p_1'+p_2'=p_1+p_2=0$. By conservation of energy, we also have:
+
+
+$$
+\frac12m_1v_1'^2+\frac12m_2v_2'^2=\frac{p_1'^2}{2m_1}+\frac{p_2'^2}{2m_2}=\frac{p_1^2}{2m_1}+\frac{p_2^2}{2m_2}
+$$
+
+
+Plug in $p_1'=-p_2'$, it's not hard to see for this quadratic equation, the other solution have to be $p_1'=-p_1=p_2$ . Thus, in this frame we have
+
+
+$$
+v_1'=\dfrac{p_1'}{m_1}=\dfrac{m_2(v_2-v_c)}{m_1}=\dfrac{m_2}{m_1}\dfrac{m_1(v_2-v_1)}{m_1+m_2}=\dfrac{m_2(v_2-v_1)}{m_1+m_2}
+$$
+
+
+by velocity addition we can get mass $1$'s velocity in our original frame:
+
+
+$$
+v_1'=\dfrac{m_2(v_2-v_1)}{m_1+m_2}+\frac{m_1v_1+m_2v_2}{m_1+m_2}=\dfrac{m_1-m_2}{m_1+m_2}v_1+\dfrac{2m_2}{m_1+m_2}v_2
+$$
+
 
 ### Work and Energy
 
