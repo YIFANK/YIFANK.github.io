@@ -8,6 +8,60 @@ The syllabus is inspired by the video [F=ma Complete Guide](https://www.youtube.
 - 400 out of 6000 qualify
 - Average score = 8/25
 
+### Math
+
+Below are some math prerequisites ranked based on their importance in F=ma:
+
+**Vectors**
+
+Vectors are very important math tools in physics. We can see most of the physical quantities, like force, displacement, velocity, etc., as vectors.
+
+- Vector addition: $(x_1,y_1,z_1)+(x_2,y_2,z_2)=(x_1+x_2,y_1+y_2,z_1+z_2)$
+- Magnitude of a vector satisfies Pythagorean theorem,  so for $v_1=(x_1,y_1,z_1)$, $|v_1|=\sqrt{x_1^2+y_1^2+z_1^2}$
+- We can express a 2D-vector as its magnitude and its direction.
+- Dot product: $(x_1,y_1,z_1)\cdot (x_2,y_2,z_2)=x_1x_2+y_1y_2+z_1z_2$, it also satisfies distributivity, so that $a\cdot (b+c)=a\cdot b + a\cdot c$
+- $v_1\cdot v_2=|v_1||v_2|\cos\theta$, where $\theta$ is the angle between to vectors.
+- Cross product: $(x_1,y_1,z_1)\times (x_2,y_2,z_2)=(y_1z_2-y_2z_1,z_1x_2-z_2x_1,x_1y_2-x_2y_1)$
+- $|v_1\times v_2|=|v_1||v_2|\sin\theta$
+
+**Trigonometry**
+
+- $\sin(\alpha\pm \beta) =\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$
+- $\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$
+- $\tan(\alpha\pm\beta)=\dfrac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$
+
+**Basic Calculus**
+
+You don't need to know this to solve 95% of F=ma problems, but it could be helpful in some problems:
+
+- $(x^n)'= nx^{n-1},(\sin x)'=-\cos x,(\cos x)'=\sin x,(e^x)'=e^x,(\ln x)'=1/x$
+- $(f+g)'=f'+g'$
+- $(f\cdot g)'=f\cdot g'+f'\cdot g$
+- $(f/g)'=(f'\cdot g-g'\cdot f)/g^2$
+- $f(g(x))'=f'(g(x))\times g'(x)$ or simply $\dfrac{dy}{dx}=\dfrac{dy}{du}\dfrac{du}{dx}$
+
+**Taylor series**
+
+
+$$
+F(x)=F(x_0)+\sum F^{(n)}(x_0)(x-x_0)^n/n!
+$$
+
+
+In cases when $x-x_0\ll 1$, we can take linear approximation:
+
+
+$$
+F(x)=F(x_0)+F'(x_0)(x-x_0)
+$$
+
+
+Some useful examples:
+
+
+
+$$\sin x= x,\cos x = 1-x^2/2,e^x=1+x,\ln(1+x)=x,(1+x)^n=1+nx$$
+
 ### Dimensional Analysis
 
 **Dimensional Analysis** is very useful in both physics and engineering. It is the analysis of the relationships between different **physical quantities** (e.g acceleration, pressure, velocity, force) by identifying their **base quantities** (e.g. length, mass, time) and their **units** (meters, kilograms, seconds). It is important to remember how units are related through formulas!
@@ -158,10 +212,40 @@ Common forces that you need to consider in your free body diagram:
 
 Some common models that you want to be familiar with:
 
-- inclined plane
-- pulleys
-- rope
-- rod
+- inclined plane：$N=mg\sin\theta,f=\mu N,F_x=mg\cos\theta-\mu mg\sin\theta$
+- rolling without slipping $v=\omega r$
+- tension $T$ is always along the direction of rope
+
+We can focus on these relations to set up our equations:
+
+- force balance $F_{net}=ma$
+- torque balance $\tau = I\alpha$
+- Conservation of momentum & angular momentum & energy
+
+If the system consists of mass points $m_i$:
+
+- coordinate of center of mass $\vec{r_c}=\sum m_i\vec{r_i}/\sum m_j$
+- total momentum $\vec{P}=\sum m_i\vec{v_i}$
+- total angular momentum $\vec{L}=\sum m_i\vec{r_i}\times \vec{v_i}$
+- kinetic energy $K=\sum m_iv_i^2/2$
+
+In the frame $S'$ where the mass center's velocity is $\vec{v_c}$:
+
+
+
+$$\vec{L}=\vec{L_c}+M\sum \vec{r_c}\times\vec{v_c},K=K_c+\dfrac12Mv_c^2,\vec{P}=\vec{P_c}+M\vec{v_c}$$
+
+
+
+**Elastic Collision**
+
+For two objects with initial velocity $v_1,v_2$ and mass $m_1,m_2$, after elastic collision their mass.
+
+
+$$
+v_1'=\dfrac{m_1-m_2}{m_1+m_2}v_1+\dfrac{2m_2}{m_1+m_2}v_2
+$$
+
 
 ### Work and Energy
 
@@ -172,6 +256,8 @@ Some common models that you want to be familiar with:
 - Potential energy-force relationship: $F=-\dfrac{dU}{dx}$
 
 - Work-energy theorem: $W=\Delta K$
+
+- An object is at equilibrium if $dU/dx= 0$. An equilibrium is stable if the potential energy is at local minimum, otherwise it's unstable.
 
 ### Rotating Objects
 
@@ -213,6 +299,23 @@ $$
 - **Kepler's Third Law**: square of the orbital period is proportional to cube of the semimajor axis. $T^2\propto a^3$
 
 *Remark:* The **second law** is a result of conservation of **angular momentum**, while the other two laws requires the gravitational force to be exactly inverse proportional to square of the distance between two stars. ($F\propto r^{-2}$)
+
+**Circular Orbit**
+
+- velocity: $$mv^2/R=GMm/R^2\implies v= \sqrt{GM/R}$$
+- kinetic energy: $\dfrac12mv^2=\dfrac{GMm}{2R}$
+- total energy: $\dfrac 12mv^2-\dfrac{GMm}{R}= -\dfrac{GMm}{2R}$
+- angular momentum: $L=mvR = m\sqrt{GMR}$
+
+**Escape Velocity**
+
+By conservation of energy, we would have
+
+
+
+$$\dfrac12mv_e^2-\dfrac{GMm}{R}=0\implies v_e=\sqrt{\dfrac{2GM}{R}}$$
+
+
 
 **Elliptical Orbit**
 
@@ -429,3 +532,6 @@ Below are some more formulas for some terms we use in oscillation:
 A system of $N$ coupled oscillators has $N$ different eigenmodes when all the oscillatros oscillate with the same frequency $\omega_i,x_j=x_{j0}\sin(\omega_i t+\varphi_{ij})$ and $N$ eigen-frequencies $\omega_i$ (which can be multiple, $\omega_i=\omega_j$). General solution is a superposition of all the eigenmotions.
 
 ### Waves (?)
+
+- $v=\lambda/T=\lambda f$
+- For waves on a string, $v=\sqrt{T/\mu}$, where $T$ is the tension along the string and $\mu$ is the linear density of the string.
