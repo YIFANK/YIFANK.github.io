@@ -283,7 +283,7 @@ $$
 ### Work and Energy
 
 - Work: $W=F\cdot s=Fs\cos\theta$
-- Kinetic energy: $E_k=\frac12mv^2$
+- Kinetic energy: $E_k=\frac12mv^2=p^2/2m$
 - Gravitational potential energy: $E_p = mgh$
 - Spring potential energy: $U=\frac12kx^2$
 - Potential energy-force relationship: $F=-\dfrac{dU}{dx}$
@@ -564,7 +564,8 @@ Below are some more formulas for some terms we use in oscillation:
 
 A system of $N$ coupled oscillators has $N$ different eigenmodes when all the oscillatros oscillate with the same frequency $\omega_i,x_j=x_{j0}\sin(\omega_i t+\varphi_{ij})$ and $N$ eigen-frequencies $\omega_i$ (which can be multiple, $\omega_i=\omega_j$). General solution is a superposition of all the eigenmotions.
 
-### Waves (?)
+### Waves
 
 - $v=\lambda/T=\lambda f$
 - For waves on a string, $v=\sqrt{T/\mu}$, where $T$ is the tension along the string and $\mu$ is the linear density of the string.
+- Doppler effect: $f_o=\dfrac{v+v_o}{v+v_s}f_s$
