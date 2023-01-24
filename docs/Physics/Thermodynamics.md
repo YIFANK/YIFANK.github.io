@@ -16,6 +16,14 @@ where:
 - $\alpha$ is the number of degrees of freedom divided by $2$. ($\alpha = 3/2$ for monatomic gas, $\alpha = 5/2$ for diatomic gas).
 - $N$ is the number of particles.
 
+### Van der Waals equation
+
+
+$$
+(p+\dfrac{a}{V^2})(V-b)=RT,p=\dfrac{RT}{V-b}-\dfrac{a}{V^2}
+$$
+
+
 ### The First Law of Thermodynamics
 
 $$
@@ -75,3 +83,4 @@ And then exponentiate them, substituting $\gamma=\dfrac{\alpha + 1}{\alpha}$ .
 $$
 (p/p_0)=(V/V_0)^{\gamma}\Longrightarrow pV^\gamma = \text{const}
 $$
+Similar derivations can be done for Van der Waals equation.

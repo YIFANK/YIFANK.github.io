@@ -34,7 +34,7 @@ $$
 
 > Lemma 1: If $G$ is a finite abelian group and $A,B$ are nonempty subsets of $G$ such that $|A|+|B|> |G|$, then $A+B=G$ .
 
-Proof: This is equivalent to proving that for any $g\in G$ , there exist $a\in A,b\in B$ such that $a+b=g$. Define $g-B=\{g-b|b\in B\}$ , then $|g-B|=|B|$ . We now have $|A|+|g-B|>|G|$ . Thus $A\cap g-B\ne\empty$ , pick $a\in A\cap g-B$ , we get a solution for $a+b=g$ .
+Proof: This is equivalent to proving that for any $g\in G$ , there exist $a\in A,b\in B$ such that $a+b=g$. Define $g-B=\{g-b|b\in B\}$ , then $|g-B|=|B|$ . We now have $|A|+|g-B|>|G|$ . Thus $A\cap g-B\ne\emptyset$ , pick $a\in A\cap g-B$ , we get a solution for $a+b=g$ .
 
 
 
