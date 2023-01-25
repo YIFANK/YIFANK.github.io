@@ -12,7 +12,7 @@ The syllabus is inspired by the video [F=ma Complete Guide](https://www.youtube.
 
 Below are some math prerequisites ranked based on their importance in F=ma:
 
-**Vectors**
+#### Vectors
 
 Vectors are very important math tools in physics. We can see most of the physical quantities, like force, displacement, velocity, etc., as vectors.
 
@@ -24,13 +24,13 @@ Vectors are very important math tools in physics. We can see most of the physica
 - Cross product: $(x_1,y_1,z_1)\times (x_2,y_2,z_2)=(y_1z_2-y_2z_1,z_1x_2-z_2x_1,x_1y_2-x_2y_1)$
 - $|v_1\times v_2|=|v_1||v_2|\sin\theta$
 
-**Trigonometry**
+#### Trigonometry
 
 - $\sin(\alpha\pm \beta) =\sin\alpha\cos\beta\pm\cos\alpha\sin\beta$
 - $\cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta$
 - $\tan(\alpha\pm\beta)=\dfrac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}$
 
-**Basic Calculus**
+#### Basic Calculus
 
 You don't need to know this to solve 95% of F=ma problems, but it could be helpful in some problems:
 
@@ -40,7 +40,7 @@ You don't need to know this to solve 95% of F=ma problems, but it could be helpf
 - $(f/g)'=(f'\cdot g-g'\cdot f)/g^2$
 - $f(g(x))'=f'(g(x))\times g'(x)$ or simply $\dfrac{dy}{dx}=\dfrac{dy}{du}\dfrac{du}{dx}$
 
-**Taylor series**
+#### Taylor series
 
 
 $$
@@ -237,7 +237,7 @@ $$\vec{L}=\vec{L_c}+M\sum \vec{r_c}\times\vec{v_c},K=K_c+\dfrac12Mv_c^2,\vec{P}=
 
 
 
-**Elastic Collision**
+#### Elastic Collision
 
 For two objects with initial velocity $v_1,v_2$ and mass $m_1,m_2$, after elastic collision their mass.
 
@@ -333,14 +333,14 @@ $$
 
 *Remark:* The **second law** is a result of conservation of **angular momentum**, while the other two laws requires the gravitational force to be exactly inverse proportional to square of the distance between two stars. ($F\propto r^{-2}$)
 
-**Circular Orbit**
+#### Circular Orbit
 
 - velocity: $$mv^2/R=GMm/R^2\implies v= \sqrt{GM/R}$$
 - kinetic energy: $\dfrac12mv^2=\dfrac{GMm}{2R}$
 - total energy: $\dfrac 12mv^2-\dfrac{GMm}{R}= -\dfrac{GMm}{2R}$
 - angular momentum: $L=mvR = m\sqrt{GMR}$
 
-**Escape Velocity**
+#### Escape Velocity
 
 By conservation of energy, we would have
 
@@ -350,7 +350,7 @@ $$\dfrac12mv_e^2-\dfrac{GMm}{R}=0\implies v_e=\sqrt{\dfrac{2GM}{R}}$$
 
 
 
-**Elliptical Orbit**
+#### Elliptical Orbit
 
 First, we would like to prove that the orbit of a planet of mass $m$ is indeed elliptical and the big mass $M$ is the focus of the eclipse. (by big mass, we mean $m\ll M$) By Newton's second law,
 
@@ -411,7 +411,7 @@ $$
 
 This is the equation for an eclipse with eccentricity $Lu/GmM$ with the focus at the origin.
 
-**Kepler's Third Law Derivation**
+#### Kepler's Third Law Derivation
 
  For an elliptical orbit with semimajor axis length $a$ and semiminor axis length $b$, its eccentricity $e$ is defined as $a^2+(ae)^2=b^2$, or $e=\sqrt{1-(b/a)^2}$ . By geometry, we know the closest distance to the focus $r_1=a(1-e)$ and the furthest distance $r_2=a(1+e)$. Thus:
 
@@ -453,8 +453,7 @@ $$
 T^2=(\dfrac{\pi ab}{L/2m})^2=\dfrac{2(\pi ab)^2}{GMb^2/2a}=\dfrac{4\pi^2 a^3}{GM}\propto a^3
 $$
 
-
-**Orbital Energy**
+#### Orbital Energy
 
 Moreover, we can derive that the total energy only depends on the major axis $a$! To see this, we add the energy at those two points together:
 
@@ -469,8 +468,7 @@ $$
 \end{aligned}
 $$
 
-
-**Orbital Velocity**
+#### Orbital Velocity
 
 By energy conservation, we can get the velocity
 
@@ -490,7 +488,7 @@ $$v^2=GM(\dfrac{2}r-\dfrac 1a)$$
 
 ### Oscillations
 
-**Simple harmonic motion**
+#### Simple harmonic motion
 
 
 $$
@@ -508,9 +506,11 @@ x^2+\frac{v^2}{\omega^2}=A^2\\
 \end{aligned}
 $$
 
+The first equation is derived from Newton's second law while the second one is a result of energy conservation. They are both very important to know about.
 
-The first equation is derived from Newton's second law while the second one is a result of energy conservation. They are both very important to know about. Take the most classical example of a mass $m$ that moves horizontally while attaching to a spring with spring constant $k$. If the system is left at rest at the equilibrium position, then no net force is acting on the mass. Otherwise, we would have the restoring elastic force by the Hooke's law:
+#### Mass on a spring
 
+Take the most classical example of a mass $m$ that moves horizontally while attaching to a spring with spring constant $k$. If the system is left at rest at the equilibrium position, then no net force is acting on the mass. Otherwise, we would have the restoring elastic force by the Hooke's law:
 
 $$
 F=-kx
@@ -534,6 +534,8 @@ $$
 
 We can also get the angular frequency by dividing the factors of $x^2$ by the factors of $v^2$ in this formula.
 
+#### Mass on a pendulum
+
 Another classical example will be the simple pendulum at small angle $\theta\ll 1$. 
 
 ![Oscillation of a Simple Pendulum](http://www.acs.psu.edu/drussell/Demos/Pendulum/Pendulum.gif)
@@ -554,8 +556,9 @@ $$
 \dfrac{d^2\theta}{dt^2}+\dfrac gL\theta=0
 $$
 
+By our previous knowledge we know that the angular frequency $\omega = \sqrt{g/L}$.
 
-By our previous knowledge we know that the angular frequency $\omega = \sqrt{g/L}$. 
+If we have a physical pendulum with moment of inertia around our pivot $I$, then $\omega = \sqrt{mgL/I}$ .
 
 Below are some more formulas for some terms we use in oscillation:
 
