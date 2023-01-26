@@ -308,6 +308,7 @@ I=I_{cm}+Md^2
 $$
 
 
+- Perpendicular axis theorem: $I_z=I_x+I_y=\int(x^2+y^2)dm$
 - rotational kinetic energy $K_r=\dfrac12I\omega^2$
 
 People often get confused about rotational object, however, it's actually very similar to linear motion. We can draw comparison between these quantities:
@@ -317,7 +318,7 @@ People often get confused about rotational object, however, it's actually very s
 - torque $\tau$ to force $F$
 - angular momentum $L$ to momentum $p$
 - moment of inertia $I$ to mass $m$
-- rotational kinetic energy $\dfrac 12 I\omega^2$ to kinetic energy $\dfrac12 mv^2$
+- rotational kinetic energy $\dfrac 12 I\omega^2=\dfrac{L^2}{2I}$ to kinetic energy $\dfrac12 mv^2=\dfrac{p^2}{2m}$
 
 ### Gravitation
 
