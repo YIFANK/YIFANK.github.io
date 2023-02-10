@@ -20,7 +20,8 @@ theme:
     - navigation.top # 一键回顶部
     - search.suggest
     - search.highlight
-
+    - content.code.copy
+    - navigation.footer
   font:
     text: Play
     code: Fira Code
