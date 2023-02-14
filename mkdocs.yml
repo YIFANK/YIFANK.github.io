@@ -6,6 +6,7 @@ site_description: >-
   Some random blogs on Math, Informatics, Physics Olympiads and more.
 theme:
   name: material
+  custom_dir: overrides
   # 一些扩展功能。 
   features:
     # - navigation.instant # 点击内部链接时，不用全部刷新页面 # 会导致 数学公式第一次进入时加载失败
