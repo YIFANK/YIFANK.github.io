@@ -4,8 +4,6 @@ site_url: https://yifank.github.io/
 site_author: Yifan Kang
 site_description: >-
   Some random blogs on Math, Informatics, Physics Olympiads and more.
-plugins:
-  - meta
 theme:
   name: material
   custom_dir: overrides
