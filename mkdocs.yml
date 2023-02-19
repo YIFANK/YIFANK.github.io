@@ -3,7 +3,7 @@ site_name: Yifan Kang's Blog
 site_url: https://yifank.github.io/
 site_author: Yifan Kang
 site_description: >-
-  Some random blogs on Math, Informatics, Physics Olympiads and more.
+  Yifan Kang's personal blogs on Math, CS, Physics Olympiads and more.
 theme:
   name: material
   custom_dir: overrides
@@ -34,8 +34,9 @@ extra:
 # 这些是用来渲染数学公式的，需要 polyfill.min.js 和 tex-chtml.min.js # 可以自己丢到博客目录下，也可以直接像我这样引用。
 # 下面 md ext 里的 math 没用，渲染效果很拉，所以用 js。 
 extra_javascript:
+  - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/mathjax/3.2.0/es5/tex-chtml.min.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 # markdown 扩展语法 
 markdown_extensions:
   - admonition
