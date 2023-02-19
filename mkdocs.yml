@@ -31,7 +31,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/YIFANK
-  comments: true
 # 这些是用来渲染数学公式的，需要 polyfill.min.js 和 tex-chtml.min.js # 可以自己丢到博客目录下，也可以直接像我这样引用。
 # 下面 md ext 里的 math 没用，渲染效果很拉，所以用 js。 
 extra_javascript:
