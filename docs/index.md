@@ -1,6 +1,6 @@
 ## Introduction
 
-Welcome to my blog! Hi, this is Yifan Kang, or you might also know me as **ETK** in coding competitions. I am currently a junior at Phillips Academy.
+Welcome to my blog! Hi, this is Yifan Kang, or you might also know me as **ETK** in coding competitions. I am currently a senior at Phillips Academy.
 
 ## Passions
 
