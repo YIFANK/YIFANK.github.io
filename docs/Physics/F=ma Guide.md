@@ -573,3 +573,35 @@ A system of $N$ coupled oscillators has $N$ different eigenmodes when all the os
 - $v=\lambda/T=\lambda f$
 - For waves on a string, $v=\sqrt{T/\mu}$, where $T$ is the tension along the string and $\mu$ is the linear density of the string.
 - Doppler effect: $f_o=\dfrac{v+v_o}{v+v_s}f_s$
+
+### Rolling without slipping
+
+Suppose we have a cylinder rolling without slipping on a ramp, how can we calculate it's speed?
+
+First, rolling without slipping implies that
+
+
+$$
+a=\alpha R
+$$
+By Newton's Second Law:
+
+
+$$
+\begin{aligned}
+mg\sin\theta - f = m\alpha R\\
+fR = I\alpha \implies \alpha = \frac{2f}{mR}\\
+\end{aligned}
+$$
+
+
+Combining these equations, we have
+
+
+$$
+\alpha = \frac{2g\sin\theta}{3R}
+$$
+Moreover, from energy conservation we have:
+$$
+mgh=\frac12mv^2+I\omega^2
+$$
