@@ -1,10 +1,6 @@
 ## Introduction
 
-Welcome to my blog! Hi, this is Yifan Kang, or you might also know me as **ETK** in coding competitions. I am currently a senior at Phillips Academy.
-
-## Passions
-
-I enjoy studying math, physics, and CS. I am a competitive programmer that attends contest like USACO, codeforces, atcoder, etc. I am also interested in solving math and physics olympiad problems. Other than STEM, I love running, singing, and playing the tuba.
+Welcome to my blog! Hi, this is Yifan Kang, or you might also know me as **ETK** in coding competitions. I am an undergraduate student at MIT majoring in Course 6-4 (Artificial Intelligence) and Course 18 Math.
 
 ## Contents
 
