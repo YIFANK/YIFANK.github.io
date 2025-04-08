@@ -1,0 +1,2367 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Yifan Kang's personal blogs on Math, CS, Physics Olympiads and more.">
+      
+      
+        <meta name="author" content="Yifan Kang">
+      
+      
+        <link rel="canonical" href="https://yifank.github.io/GTAC/0.%20Introduction%20to%20Graph%20Theory/">
+      
+      
+        <link rel="prev" href="../../Friend%20Links/Friend%20Links/">
+      
+      
+        <link rel="next" href="../1.%20Graph%20Coloring/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>0. Introduction to Graph Theory - Yifan Kang's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Play:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Play";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#notations" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Yifan Kang&#39;s Blog" class="md-header__button md-logo" aria-label="Yifan Kang's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Yifan Kang's Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              0. Introduction to Graph Theory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Algorithms/Berlekamp-Massey%20Algorithm/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Algorithms
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Friend%20Links/Friend%20Links/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Friend Links
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  GTAC
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Math/Cauchy%27s%20Theorem%20and%20Sylow%20Theorems/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Old%20Posts/AGC001%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Old Posts
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Physics/Binet%20Equation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Physics
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Yifan Kang&#39;s Blog" class="md-nav__button md-logo" aria-label="Yifan Kang's Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Yifan Kang's Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Algorithms
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Algorithms
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Algorithms/Berlekamp-Massey%20Algorithm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Berlekamp Massey Algorithm
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Friend Links
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Friend Links
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Friend%20Links/Friend%20Links/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Friend Links
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    GTAC
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            GTAC
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    0. Introduction to Graph Theory
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    0. Introduction to Graph Theory
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#notations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handshaking-lemma" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handshaking Lemma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#walks-paths-and-cycles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Walks, Paths, and Cycles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Trees
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      Problems
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.%20Graph%20Coloring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Graph Coloring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.%20Extremal%20Graph%20Theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Extremal Graph Theory
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3.%20Probablistic%20methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Probablistic methods
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../4.%20Structure%20of%20set%20addition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Structure of set addition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Math
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Math
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Cauchy%27s%20Theorem%20and%20Sylow%20Theorems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cauchy's Theorem and Sylow Theorems
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Cauchy-Davenport%20Theorem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cauchy Davenport Theorem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Group%20action%2C%20orbits%2C%20and%20stabilizers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Group action, orbits, and stabilizers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/MIT%20Integration%20Bee%202023/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MIT Integration Bee 2023
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Olympiad%20Inequalities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Olympiad Inequalities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/USAJMO%202021/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USAJMO 2021
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Math/Wythoff%20Game/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wythoff Game
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Old Posts
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Old Posts
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC001%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC001 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC002%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC002 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC003%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC003 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC004%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC004 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC005%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC005 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC006%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC006 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC007%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC007 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC008%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC008 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/AGC009%20%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AGC009 做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/ARC115%E7%AE%80%E8%A6%81%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ARC115简要题解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/Boruvka/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Boruvka
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/CF1517C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CF1517C
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/Google%20Kick%20Start%20Round%20H/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Kick Start Round H
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/JOI%202021%20Final/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JOI 2021 Final
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/P3396%20%E5%93%88%E5%B8%8C%E5%86%B2%E7%AA%81/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    P3396 哈希冲突
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/P4238%20%E3%80%90%E6%A8%A1%E6%9D%BF%E3%80%91%E5%A4%9A%E9%A1%B9%E5%BC%8F%E4%B9%98%E6%B3%95%E9%80%86/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    P4238 【模板】多项式乘法逆
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/P5978%20%5BCEOI2018%5DGlobal%20warming%20%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    P5978 [CEOI2018]Global warming 题解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/P6078%20%5BCEOI2004%5D%20Sweets%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    P6078 [CEOI2004] Sweets题解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/SP34096%20DIVCNTK%20%E9%A2%98%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SP34096 DIVCNTK 题解
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/USACO%2021DEC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USACO 21DEC Platinum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/USACO%2022FEB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USACO 22FEB
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/USACO%2022JAN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USACO 22JAN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/USACO%2022OPEN/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    USACO 22OPEN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E3%80%8CJOI%202020%20Final%E3%80%8D%E7%81%AB%E4%BA%8B/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    「JOI 2020 Final」火事
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E3%80%8CJOI%20Open%202016%E3%80%8D%E6%91%A9%E5%A4%A9%E5%A4%A7%E6%A5%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    「JOI Open 2016」摩天大楼
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E3%80%8CeJOI2021%E3%80%8D%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    「eJOI2021」做题记录
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E5%9C%86%E6%96%B9%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    P5236 【模板】静态仙人掌
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20CF367E/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 CF367E
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20CF466D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 CF466D
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P4184%20%5BUSACO18JAN%5DSprinklers%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P4184 [USACO18JAN]Sprinklers P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P4374%20%5BUSACO18OPEN%5DDisruption%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P4374 [USACO18OPEN]Disruption P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P5203%20%5BUSACO19JAN%5DExercise%20Route%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P5203 [USACO19JAN]Exercise Route P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P5243%20%5BUSACO19FEB%5DMoorio%20Kart%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P5243 [USACO19FEB]Moorio Kart P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P6143%20%5BUSACO20FEB%5DEquilateral%20Triangles%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P6143 [USACO20FEB]Equilateral Triangles P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P7156%20%5BUSACO20DEC%5D%20Cowmistry%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P7156 [USACO20DEC] Cowmistry P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P7295%20%5BUSACO21JAN%5D%20Paint%20by%20Letters%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P7295 [USACO21JAN] Paint by Letters P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20P7416%20%5BUSACO21FEB%5D%20No%20Time%20to%20Dry%20P/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 P7416 [USACO21FEB] No Time to Dry P
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Old%20Posts/%E9%A2%98%E8%A7%A3%20%5B%E7%9C%81%E9%80%89%E8%81%94%E8%80%83%202021%20A%3AB%20%E5%8D%B7%5D%20%E6%BB%9A%E6%A6%9C/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    题解 [省选联考 2021 A:B 卷] 滚榜
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Physics
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Physics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/Binet%20Equation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Binet Equation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/F%3Dma%20Guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    F=ma Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/Theory%20of%20relativity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Theory of relativity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Physics/Thermodynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Thermodynamics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>0. Introduction to Graph Theory</h1>
+
+<p>I will be creating a series of blog posts as well as presentations on graph theory. The blog post is inspired by Prof. Yufei Zhao's book Graph Theory and Additive Combinatorics. The goal for my blog posts is to provide a more friendly introduction to concepts in graph theory. If you are a high school student interested in math outside of your currilum, if you are a math olympiad enthusiast, or if you are a college student taking an introductory graph theory class, I hope you all can find my blogs useful. I will be discussing selected topics and problems of graph theory as well as providing solutions to some exercises.</p>
+<p>So, what is graph theory?</p>
+<blockquote>
+<p>ChatGPT: "Graph theory is a branch of mathematics that studies the properties and structures of graphs, which are mathematical representations of networks of objects or relationships between them. Graphs can be used to model a wide range of problems in various fields, including computer science, engineering, social sciences, biology, physics, and more. Some of the basic concepts in graph theory include vertices (or nodes), edges, and various types of graph such as directed, undirected, weighted and unweighted."</p>
+</blockquote>
+<p>First, we introduce some notations to define a graph.</p>
+<h3 id="notations">Notations<a class="headerlink" href="#notations" title="Permanent link">&para;</a></h3>
+<p>We write a graph as <span class="arithmatex">\(G=(V,E)\)</span>, where <span class="arithmatex">\(V\)</span> is the set of <strong>vertices</strong> and <span class="arithmatex">\(E\subseteq \{(x,y)|x,y\in V\}\)</span> is the set of <strong>edges</strong>. </p>
+<p>When there's a direction for the edges (e.g. <span class="arithmatex">\(x\to y\)</span>), we say the graph is <strong>directed</strong>, otherwise it's <strong>undirected</strong>. We will focus on undirected graphs in our future posts. </p>
+<p>For example, when <span class="arithmatex">\(V=\{1,2,3,4\},E=\{(1,3),(1,4),(2,3),(2,4)\}\)</span>. The graph looks like this:</p>
+<p><img src="https://raw.githubusercontent.com/YIFANK/YIFANK.github.io/main/pics/image-20221207100910624.png" alt="img" style="zoom:50%;" /></p>
+<p>This is also known as a <span class="arithmatex">\(K_{2,2}\)</span> graph, which means we have two vertices on the left and other two on the right, and every vertex on the left is connected with every vertex on the right.</p>
+<p>Generally, we define <strong>the complete bipartite graph</strong> <span class="arithmatex">\(K_{s,t}\)</span> to be a graph with <span class="arithmatex">\(s\)</span> vertices in one part and <span class="arithmatex">\(t\)</span> on the other, and any edges in between the two parts are connected. Below is an example of <span class="arithmatex">\(K_{5,3}\)</span>:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Biclique_K_3_5.svg/1200px-Biclique_K_3_5.svg.png" alt="Complete bipartite graph - Wikipedia" style="zoom: 30%;" /></p>
+<p>Moreover, <span class="arithmatex">\(K_r\)</span> is the <strong>complete graph</strong> on <span class="arithmatex">\(r\)</span> vertices, which means <span class="arithmatex">\(E=\{(x,y)|1\le x &lt; y\le r \}\)</span> . It is also known as a <strong><span class="arithmatex">\(r\)</span>-clique</strong>. Below is the graph <span class="arithmatex">\(K_7\)</span>. </p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Complete_graph_K7.svg/1200px-Complete_graph_K7.svg.png" alt="Complete graph - Wikipedia" style="zoom: 33%;" /></p>
+<p>In a graph <span class="arithmatex">\(G=(V,E)\)</span>, we say two vertices <span class="arithmatex">\(u\)</span> and <span class="arithmatex">\(v\)</span> are <strong>neighbors</strong> or <strong>adjacent</strong> if there exist an edge <span class="arithmatex">\((u,v)\in E\)</span> . In the above example, <span class="arithmatex">\(1\)</span> is a neighbor of <span class="arithmatex">\(4\)</span> but not a neighbor of <span class="arithmatex">\(2\)</span>. </p>
+<p>A <strong>neighborhood</strong> of <span class="arithmatex">\(u\)</span> is defined as the set of all <span class="arithmatex">\(u\)</span>'s neighbors. Formally, <span class="arithmatex">\(N(u)=\{v|(u,v)\in E\}\)</span>. In the above example, <span class="arithmatex">\(1\)</span>'s neighborhood contains <span class="arithmatex">\(3\)</span> and <span class="arithmatex">\(4\)</span>, so <span class="arithmatex">\(N(1)=\{3,4\}\)</span>.</p>
+<p>The <strong>degree</strong> of <span class="arithmatex">\(v\)</span> is the number of edges that contains <span class="arithmatex">\(v\)</span>, denoted as <span class="arithmatex">\(\deg v\)</span> . In undirected graphs without self-loops (weird edges like <span class="arithmatex">\((u,u)\)</span>), it's clear that <span class="arithmatex">\(\deg v = |N(v)|\)</span>.</p>
+<h3 id="handshaking-lemma">Handshaking Lemma<a class="headerlink" href="#handshaking-lemma" title="Permanent link">&para;</a></h3>
+<p><em>Claim:</em> For a graph with <span class="arithmatex">\(m\)</span> edges, we have</p>
+<div class="arithmatex">\[
+\sum_v \deg v  = 2m
+\]</div>
+<p><em>Proof:</em> For each edge <span class="arithmatex">\((u,v)\)</span>, we count it twice on the left hand side (in <span class="arithmatex">\(\deg u\)</span> and <span class="arithmatex">\(\deg v\)</span>), thus it sums up to <span class="arithmatex">\(2m\)</span>.</p>
+<p><em>Handshaking Lemma:</em> In a undirected graph, the number of vertices with <strong>odd</strong> degree is <strong>even</strong>.</p>
+<p>The name of this theorem comes from a famous mathematical problem, which is proving that: in a party, the number of people who shake hands an <strong>odd</strong> number of times must be <strong>even</strong>.</p>
+<p><em>Proof:</em> Assume that that number is odd, then for the left hand side you get <span class="arithmatex">\(1\times 1 + 0\equiv 1\pmod 2\)</span> (odd times odd + even = odd). However, the right hand side is even. Contradiction! Thus the statement holds.</p>
+<h3 id="walks-paths-and-cycles">Walks, Paths, and Cycles<a class="headerlink" href="#walks-paths-and-cycles" title="Permanent link">&para;</a></h3>
+<p>In an actual graph, we might want to travel from a point to another point along some roads conneting them. We also have similar concepts in graph theory, called a <strong>walk</strong>, which is defined as a sequence of edges <span class="arithmatex">\((e_1,e_2,\dots,e_{n-1})\)</span> and vertices <span class="arithmatex">\((v_1,v_2,\dots,v_n)\)</span> in a graph such that <span class="arithmatex">\(e_i = (v_i,v_{i+1})\)</span> is the edge connecting <span class="arithmatex">\(v_i\)</span> and <span class="arithmatex">\(v_{i+1}\)</span> in the graph.</p>
+<p><img src="https://raw.githubusercontent.com/YIFANK/YIFANK.github.io/main/pics/image-20221207100910624.png" alt="img" style="zoom:50%;" /></p>
+<p>For example, in our previous graph, if we <strong>walk</strong> along <span class="arithmatex">\((1,3),(3,2),(2,4)\)</span>, then we passes through the vertices <span class="arithmatex">\(1,3,2,4\)</span>, and these two sets together forms a <strong>walk</strong>.</p>
+<p>Moreover, a graph is called <strong>connected</strong> if there is a walk from any vertex <span class="arithmatex">\(x\)</span> to any other vertex <span class="arithmatex">\(y\)</span>.</p>
+<p>We can define more terms based on our <strong>walk</strong>! What if we never travel through the same edge twice? A <strong>trail</strong> is a walk in which all edges are distinct <span class="arithmatex">\((e_i\ne e_j)\)</span>.</p>
+<p>What if we never travel through the same vertex? A <strong>path</strong> is a walk in which all vertices are distinct <span class="arithmatex">\((v_i\ne v_j)\)</span>.</p>
+<p>What if we are on a trail that travels back to our starting point? A trail where the first and the last vertex are the same is called a <strong>cycle</strong>. <span class="arithmatex">\(1\to3\to2\to4\to 1\)</span> is a cycle, since it starts and ends at <span class="arithmatex">\(1\)</span>.</p>
+<p><em>Claim:</em> If a graph has no cycles, it must have a vertex with degree <span class="arithmatex">\(\le 1\)</span>.</p>
+<p><em>Proof:</em> Let's prove by contradiction! Suppose none of the vertex has degree <span class="arithmatex">\(\le 1\)</span>, then we can pick any vertex <span class="arithmatex">\(v_0\)</span> and start our trail there, picking the next edge to be any untraveled edge from this point and continuing this process. Since there's no cycle, the trail will eventually end at some point <span class="arithmatex">\(v_n\ne v_0\)</span>. However, this would mean that we traveled to <span class="arithmatex">\(v_n\)</span> at least twice because <span class="arithmatex">\(\deg v_n &gt; 1\)</span>! We can just start at <span class="arithmatex">\(v_n\)</span> and follow the same trail to form our cycle. Contradiction!</p>
+<p>We call a graph without cycles an <strong>acyclic</strong> graph.</p>
+<h3 id="trees">Trees<a class="headerlink" href="#trees" title="Permanent link">&para;</a></h3>
+<p>You might not learn anything about graph theory before, but you definitely have seen trees in graph theory. It looks like a mindmap:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Tree_graph.svg/1200px-Tree_graph.svg.png" alt="Tree (graph theory) - Wikipedia" style="zoom:25%;" /></p>
+<p>There are several definitions about a <strong>tree</strong> in graph theory and they are indeed equivalent!</p>
+<ul>
+<li>A tree is a graph in which any two vertices are connected by <em>exactly one</em> path.</li>
+<li>A tree is a connected graph without any cycles.</li>
+<li>A tree is a connected graph without any cycles, but a cycle will form if any edge is added to it.</li>
+<li>A tree is connected, but would become disconnected if any edge is removed from it.</li>
+</ul>
+<p>We will not go into proving the equivalence of all these statements here but it will be left as an exercise. </p>
+<p>Next, draw your own trees and count the number of vertices and edges. What do you find?</p>
+<p><em>Claim:</em> An <span class="arithmatex">\(n\)</span>-vertices tree has <span class="arithmatex">\(n-1\)</span> edges.</p>
+<p><em>Proof:</em> We can prove by induction on <span class="arithmatex">\(n\)</span>. When <span class="arithmatex">\(n=1\)</span> the tree has no edges so our claim holds.</p>
+<p>When <span class="arithmatex">\(n &gt; 1\)</span>, let <span class="arithmatex">\(T\)</span> be a tree with <span class="arithmatex">\(n\)</span> vertices. Since <span class="arithmatex">\(T\)</span> has no cycles, there exists a vertex <span class="arithmatex">\(v\)</span> in <span class="arithmatex">\(T\)</span> such that <span class="arithmatex">\(\deg v\le 1\)</span> by the previous claim we made about acyclic graph. <span class="arithmatex">\(T\)</span> is connected so <span class="arithmatex">\(\deg v =1\)</span>.</p>
+<p>Thus, we can consider the graph <span class="arithmatex">\(T'=T-v\)</span> that we get by deleting the vertex <span class="arithmatex">\(v\)</span> in <span class="arithmatex">\(T\)</span>. <span class="arithmatex">\(T'\)</span> is still connected and has <span class="arithmatex">\(n-1\)</span> vertices. By induction there are <span class="arithmatex">\(n-2\)</span> edges in <span class="arithmatex">\(T'\)</span> so <span class="arithmatex">\(T\)</span> has <span class="arithmatex">\(n-1\)</span> edges.</p>
+<h3 id="problems">Problems<a class="headerlink" href="#problems" title="Permanent link">&para;</a></h3>
+<ol>
+<li>If there exists a walk from <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(y\)</span>, can you always find a path from <span class="arithmatex">\(x\)</span> to <span class="arithmatex">\(y\)</span>? What about trail?</li>
+<li>Let <span class="arithmatex">\(\delta\)</span> be the minimum degree of <span class="arithmatex">\(G\)</span>, and suppose that <span class="arithmatex">\(\delta \ge 2\)</span>. Prove that <span class="arithmatex">\(G\)</span> contains a path with <span class="arithmatex">\(\ge \delta + 1\)</span> edges.</li>
+<li>If <span class="arithmatex">\(G\)</span> is a tree and the sum of the degree of all vertices is <span class="arithmatex">\(S\)</span>, how many vertices does <span class="arithmatex">\(G\)</span> have?</li>
+<li>An <strong>Eulerian trail</strong> is a trail in a graph <span class="arithmatex">\(G\)</span> that visits every edge exactly once. It was first discussed by Leonhard Euler while solving the famous <a href="https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg">Seven Bridges of Königsberg</a> problem. Euler proved that such trail exists only when the degree of all vertices are even. Can you prove it?</li>
+<li>Prove that a connected graph has an Eulerian trail if every vertex has an even degree.</li>
+<li>Prove that the statements about trees are all equivalent.</li>
+<li>We call a graph <em>bipartite</em> if it is a subgraph of a complete bipartite graph. In other words, the vertices in a bipartite graph can be separated into two groups such that all of the group's edges only cross between the groups. Prove that a graph is <em>bipartite</em> if and only if it has no cycles of odd length.</li>
+<li>Let <span class="arithmatex">\(G\)</span> be a graph. Prove that it is possible to partition the vertices into two groups such that for each vertex, at least half of its neighbors ended up in another group.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+  <meta property="robots" content="noindex, nofollow" />
+  <h2 id="__comments">Comments</h2>
+  <!-- Insert generated snippet here -->
+  <script src="https://giscus.app/client.js"
+        data-repo="YIFANK/yifank.github.io"
+        data-repo-id="R_kgDOHxy4yQ"
+        data-category="Q&A"
+        data-category-id="DIC_kwDOHxy4yc4CUMh2"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+  <!-- Synchronize Giscus theme with palette -->
+  <script>
+    var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set palette on initial load */
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object") {
+      var theme = palette.color.scheme === "slate" ? "dark" : "light"
+      giscus.setAttribute("data-theme", theme) 
+    }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        var palette = __md_get("__palette")
+        if (palette && typeof palette.color === "object") {
+          var theme = palette.color.scheme === "slate" ? "dark" : "light"
+
+          /* Instruct Giscus to change theme */
+          var frame = document.querySelector(".giscus-frame")
+          frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+          )
+        }
+      })
+    })
+  </script>
+
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "toc.integrate", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "navigation.footer"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
